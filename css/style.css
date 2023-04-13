@@ -1,0 +1,645 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*FONDO DE PANTALLA CON GIF*/
+body {
+  background: #fcb8a5;
+  background-image: url(sss);
+}
+
+/*MENÚ DESPLEGABLE ESQUINA SUPERIOR IZQUIERDA (Tipo: menú hamburguesa)*/
+.hamburger{
+	position:fixed;
+  background-color:transparent;
+	left:0;
+	top:0;
+	height:30px;
+	width:30px;
+	padding:20px 20px;
+	-webkit-transform:translate3d(0, 0, 0);
+	transform:translate3d(0, 0, 0);
+	-webkit-transition:-webkit-transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+	transition:transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+	z-index:1002;
+	cursor:pointer;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none
+}
+.hamburger.is-active{
+  background-color:none;
+}
+._layer{
+	background:#ffffff;
+	margin-bottom:4px;
+	border-radius:2px;
+	width:28px;
+	height:4px;
+	opacity:1;
+	-webkit-transform:translate3d(0, 0, 0);
+	transform:translate3d(0, 0, 0);
+	-webkit-transition:all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+	transition:all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+}
+.hamburger:hover .-top{
+	-webkit-transform:translateY(-100%);
+	-ms-transform:translateY(-100%);
+	transform:translateY(-100%);
+}
+.hamburger:hover .-bottom{
+	-webkit-transform:translateY(50%);
+	-ms-transform:translateY(100%);
+	transform:translateY(100%);
+	}
+.hamburger.is-active .-top{
+	-webkit-transform:translateY(200%) rotate(45deg) !important;
+	-ms-transform:translateY(200%) rotate(45deg) !important;
+	transform:translateY(200%) rotate(45deg) !important;
+}
+.hamburger.is-active .-mid{
+	opacity:0;
+}
+.hamburger.is-active .-bottom{
+	-webkit-transform:translateY(-200%) rotate(135deg) !important;
+	-ms-transform:translateY(-200%) rotate(135deg) !important;
+	transform:translateY(-200%) rotate(135deg) !important;
+}
+
+/*MENÚ DESPLEGABLE TIPO HAMBURGUESA (opcciones con animación)*/
+.menuppal.is_active{
+  transform: translate3d(0px, 0px, 0px);
+}
+.menuppal{
+   background-color: rgba(243, 192, 192, 0.805);
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    overflow-y: scroll;
+    position: fixed;
+    top: 0;
+    transform: translate3d(0px, -100%, 0px);
+    transition: transform 0.35s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
+    width: 100%;
+    z-index: 1001;
+}
+.menuppal ul{
+  margin:0;padding:0;
+}
+.menuppal ul li {
+  font-size: 20px;
+  list-style: none;
+	text-align:center;
+	font-family: Verdana, Arial, Helvetica;
+	color: nav-color-text
+	font-size 1.5rem
+	line-height 3em
+	height 3em
+	text-transform none
+	font-weight bold
+}
+  
+.menuppal ul li a{
+  display: inline-block;
+padding-left: 35px;
+padding-right: 35px;
+padding-top: 20px;
+padding-bottom: 20px;
+}
+.menuppal ul li a:link{
+  text-decoration: none;
+}
+.menuppal ul li a:hover {
+  /*color: #717176;
+  cursor: pointer;
+  font-size: 24px;
+  text-decoration:underline;*/
+  color: #e03642;
+  font-size: 20px;
+  animation: 1s chicle 1;
+}
+
+/* Creamos la animación (con keyframes) */
+
+@keyframes chicle {
+  
+  
+  30% {
+    transform: scaleX(1.2) scaleY(0.7);
+  }
+
+  40% {
+    transform: scaleX(0.7) scaleY(1.2);
+  }
+
+   60% {
+     
+    transform: scaleX(1.1) scaleY(0.8);
+     
+  }
+  
+}
+
+/*FONDO DE FLORES ROSADAS EN EL TITULO*/
+.encabezado {
+ /* margin-top: -60px;
+  margin-left: -10px;
+  margin-right: -10px;*/
+  max-width: 1370px;
+  height: 280px; 
+  background: #f1889f;
+  background-image: url(/img/fondo/2.webp);
+  opacity: 100%;
+}
+
+h1 {
+  font-family: Candara;
+  color: rgb(255, 255, 255);
+  font-size: 88px;
+  letter-spacing: 14px;
+  padding-left: 80px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.descripcion {
+  padding-left: 40px;
+  padding-right: 30px;
+}
+
+/*LETRA DE DESCRIPCIÓN ANIMADA (Tipo: máquina de escribir)*/
+.animate-text {
+  font-family: "Inconsolata", monospace;
+  color: #ffffff;
+  font-size: 1.2rem;
+  letter-spacing: 0.075rem;
+  text-align: center;
+  }
+  
+  /*Para simular el cursor del teclado usamos la siguiente pseudoclase con una animación que pueden ver 
+  en la parte final del código CSS*/
+.animate-text::after {
+  content: "|";
+  font-size: 1.6rem;
+  font-family: "Inconsolata", monospace;
+  animation-name: parpadeo;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.item {
+  max-width: 1370px; 
+  height: 60px; 
+  background: #ffffff;
+  font-family: candara;
+  font-size: 20px;
+  letter-spacing: 2px;
+  padding-top: 1px;
+  line-height: 4;
+  position: relative;
+}
+
+.item:before {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px;
+  background-color: #f1595e;
+  transition: all .3s;
+}
+.item:hover:before {
+  width: 100%;
+}
+
+.tres:before {
+  left: 50%;
+}
+.tres:hover:before {
+  left:0;
+}
+
+/*ANIMACIÓN DE OPCIONES DE MENÚ (Tipo: agrandar la letra cuando pase el cursor)*/
+.opciones {
+display: inline-block;
+padding-left: 35px;
+padding-right: 35px;
+}
+.opciones:link{
+  text-decoration: none;
+}
+.opciones:hover {
+  /*color: #717176;
+  cursor: pointer;
+  font-size: 24px;
+  text-decoration:underline;*/
+  animation: 1s chicle 1;
+}
+
+/* Creamos la animación (con keyframes) */
+
+@keyframes chicle {
+  
+  
+  30% {
+    transform: scaleX(1.2) scaleY(0.7);
+  }
+
+  40% {
+    transform: scaleX(0.7) scaleY(1.2);
+  }
+
+   60% {
+     
+    transform: scaleX(1.1) scaleY(0.8);
+     
+  }
+  
+}
+
+/*ANIMACIÓN DE LAS PRENDAS EN VENTA*/
+.corto {
+  width: 258px;
+  position: center;
+}
+
+.largo {
+  width: 200px;
+  position: center;
+}
+
+.precio {
+  color: black;
+  font-size: 25px;
+}
+.precio:link{
+  text-decoration: none;
+}
+.precio:hover {
+  animation: 1s chicle 1;
+}
+
+.imagen1 {
+  color: #686868;
+  font-family: candara;
+  font-size: 20px;
+  letter-spacing: 2px;
+  border-top: 2px solid #f1595e;
+  border-bottom: 5px solid #f1595e;
+  border-left: 2px solid #f1595e;
+  border-right: 5px solid #f1595e;
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255);
+  margin: 20px;
+  margin-bottom: 8px;
+  padding: 10px;
+  width: 280px;
+  height: 400px;
+  display: inline-block;
+  position: center;
+  text-align: center;
+  transition: transform .2s;
+}
+.imagen1:hover {
+  transform: scale(1.1);
+}
+
+.imagen2 {
+  color: #686868;
+  font-family: candara;
+  font-size: 20px;
+  letter-spacing: 2px;
+  border-top: 2px solid rgb(0, 0, 0);
+  border-bottom: 5px solid rgb(0, 0, 0);
+  border-left: 2px solid rgb(0, 0, 0);
+  border-right: 5px solid rgb(0, 0, 0);
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255);
+  margin: 20px;
+  margin-bottom: 8px;
+  padding: 10px;
+  width: 280px;
+  height: 400px;
+  display: inline-block;
+  position: center;
+  text-align: center;
+  transition: transform .2s;
+}
+.imagen2:hover {
+  transform: scale(1.1);
+}
+
+.imagen3 {
+  color: #686868;
+  font-family: candara;
+  font-size: 20px;
+  letter-spacing: 2px;
+  border-top: 2px solid #f1595e;
+  border-bottom: 5px solid #f1595e;
+  border-left: 2px solid #f1595e;
+  border-right: 5px solid #f1595e;
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255);
+  margin: 20px;
+  margin-bottom: 8px;
+  padding: 10px;
+  width: 280px;
+  height: 400px;
+  display: inline-block;
+  position: center;
+  text-align: center;
+  transition: transform .2s;
+}
+.imagen3:hover {
+  transform: scale(1.1);
+}
+
+.imagen4 {
+  color: #686868;
+  font-family: candara;
+  font-size: 20px;
+  letter-spacing: 2px;
+  border-top: 2px solid rgb(0, 0, 0);
+  border-bottom: 5px solid rgb(0, 0, 0);
+  border-left: 2px solid rgb(0, 0, 0);
+  border-right: 5px solid rgb(0, 0, 0);
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255);
+  margin: 20px;
+  margin-bottom: 8px;
+  padding: 10px;
+  width: 280px;
+  height: 400px;
+  display: inline-block;
+  position: center;
+  text-align: center;
+  transition: transform .2s;
+}
+.imagen4:hover {
+  transform: scale(1.1);
+}
+
+.imagen5 {
+  color: #686868;
+  font-family: candara;
+  font-size: 20px;
+  letter-spacing: 2px;
+  border-top: 2px solid rgb(0, 0, 0);
+  border-bottom: 5px solid rgb(0, 0, 0);
+  border-left: 2px solid rgb(0, 0, 0);
+  border-right: 5px solid rgb(0, 0, 0);
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255);
+  margin: 20px;
+  margin-bottom: 8px;
+  padding: 10px;
+  width: 280px;
+  height: 400px;
+  display: inline-block;
+  position: center;
+  text-align: center;
+  transition: transform .2s;
+}
+.imagen5:hover {
+  transform: scale(1.1);
+}
+
+.imagen6 {
+  color: #686868;
+  font-family: candara;
+  font-size: 20px;
+  letter-spacing: 2px;
+  border-top: 2px solid #f1595e;
+  border-bottom: 5px solid #f1595e;
+  border-left: 2px solid #f1595e;
+  border-right: 5px solid #f1595e;
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255);
+  margin: 20px;
+  margin-bottom: 8px;
+  padding: 10px;
+  width: 280px;
+  height: 400px;
+  display: inline-block;
+  position: center;
+  text-align: center;
+  transition: transform .2s;
+}
+.imagen6:hover {
+  transform: scale(1.1);
+}
+
+.imagen7 {
+  color: #686868;
+  font-family: candara;
+  font-size: 20px;
+  letter-spacing: 2px;
+  border-top: 2px solid rgb(0, 0, 0);
+  border-bottom: 5px solid rgb(0, 0, 0);
+  border-left: 2px solid rgb(0, 0, 0);
+  border-right: 5px solid rgb(0, 0, 0);
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255);
+  margin: 20px;
+  margin-bottom: 8px;
+  padding: 10px;
+  width: 280px;
+  height: 400px;
+  display: inline-block;
+  position: center;
+  text-align: center;
+  transition: transform .2s;
+}
+.imagen7:hover {
+  transform: scale(1.1);
+}
+
+.imagen8 {
+  color: #686868;
+  font-family: candara;
+  font-size: 20px;
+  letter-spacing: 2px;
+  border-top: 2px solid #f1595e;
+  border-bottom: 5px solid #f1595e;
+  border-left: 2px solid #f1595e;
+  border-right: 5px solid #f1595e;
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255);
+  margin: 20px;
+  margin-bottom: 8px;
+  padding: 10px;
+  width: 280px;
+  height: 400px;
+  display: inline-block;
+  position: center;
+  text-align: center;
+  transition: transform .2s;
+}
+.imagen8:hover {
+  transform: scale(1.1);
+}
+
+.imagen9 {
+  color: #686868;
+  font-family: candara;
+  font-size: 20px;
+  letter-spacing: 2px;
+  border-top: 2px solid #f1595e;
+  border-bottom: 5px solid #f1595e;
+  border-left: 2px solid #f1595e;
+  border-right: 5px solid #f1595e;
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255);
+  margin: 20px;
+  margin-bottom: 8px;
+  padding: 10px;
+  width: 280px;
+  height: 400px;
+  display: inline-block;
+  position: center;
+  text-align: center;
+  transition: transform .2s;
+}
+.imagen9:hover {
+  transform: scale(1.1);
+}
+
+.imagen10 {
+  color: #686868;
+  font-family: candara;
+  font-size: 20px;
+  letter-spacing: 2px;
+  border-top: 2px solid rgb(0, 0, 0);
+  border-bottom: 5px solid rgb(0, 0, 0);
+  border-left: 2px solid rgb(0, 0, 0);
+  border-right: 5px solid rgb(0, 0, 0);
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255);
+  margin: 20px;
+  margin-bottom: 8px;
+  padding: 10px;
+  width: 280px;
+  height: 400px;
+  display: inline-block;
+  position: center;
+  text-align: center;
+  transition: transform .2s;
+}
+.imagen10:hover {
+  transform: scale(1.1);
+}
+
+.imagen11 {
+  color: #686868;
+  font-family: candara;
+  font-size: 20px;
+  letter-spacing: 2px;
+  border-top: 2px solid #f1595e;
+  border-bottom: 5px solid #f1595e;
+  border-left: 2px solid #f1595e;
+  border-right: 5px solid #f1595e;
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255);
+  margin: 20px;
+  margin-bottom: 8px;
+  padding: 10px;
+  width: 280px;
+  height: 400px;
+  display: inline-block;
+  position: center;
+  text-align: center;
+  transition: transform .2s;
+}
+.imagen11:hover {
+  transform: scale(1.1);
+}
+
+.imagen12 {
+  color: #686868;
+  font-family: candara;
+  font-size: 20px;
+  letter-spacing: 2px;
+  border-top: 2px solid rgb(0, 0, 0);
+  border-bottom: 5px solid rgb(0, 0, 0);
+  border-left: 2px solid rgb(0, 0, 0);
+  border-right: 5px solid rgb(0, 0, 0);
+  border-radius: 12px;
+  background-color: rgb(255, 255, 255);
+  margin: 20px;
+  margin-bottom: 8px;
+  padding: 10px;
+  width: 280px;
+  height: 400px;
+  display: inline-block;
+  position: center;
+  text-align: center;
+  transition: transform .2s;
+}
+.imagen12:hover {
+  transform: scale(1.1);
+}
+
+/*PIE DE PAGINA*/
+footer {
+  background-color: #fb958b;
+  position: relative;
+}
+
+.nosotros {
+  font-family: candara;
+  font-size: 18px;
+  color: #ffffff;
+  display: inline-block;
+  margin: 18px;
+  letter-spacing: 1px;
+}
+
+.direccion {
+  font-family: candara;
+  font-size: 18px;
+  color: #ffffff;
+  display: inline-block;
+  margin: 18px;
+  letter-spacing: 1px;
+}
+
+.servicio {
+  font-family: candara;
+  font-size: 18px;
+  color: #ffffff;
+  display: inline-block;
+  margin: 18px;
+  letter-spacing: 1px;
+}
+
+.contacto {
+  font-family: candara;
+  font-size: 18px;
+  color: #ffffff;
+  display: inline-block;
+  margin: 18px;
+  letter-spacing: 1px;
+}
+
+.mas {
+  font-family: candara;
+  font-size: 18px;
+  color: #ffffff;
+  display: inline-block;
+  margin: 18px;
+  letter-spacing: 1px;
+}
+
+/*ENLACE A LA PÁGINA DE ENCRIPTACIÓN*/
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  color:#e03642;
+}
